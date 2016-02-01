@@ -126,10 +126,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
 		// *********************************************************************************
 		// Player stuff --- these things should probably be chunked into methods
         // and classes
-		// *********************************************************************************
-        SpriteSheet proMoving = new SpriteSheet(
-                "res/ProtagonistSpriteSheet.png", 64, 64, 0);
-
+		// ********************************************************************************
 		// System.out.println("Horizontal count: "
         // +runningSS.getHorizontalCount());
 		// System.out.println("Vertical count: " +runningSS.getVerticalCount());
