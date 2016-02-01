@@ -81,11 +81,12 @@ public class AloneInTheLabyrinth extends BasicGameState {
     private static AppGameContainer app;
 
     private static Camera camera;
+    
+    private Animation sprite, proup, prodown, proleft, proright;
 
     public static int counter = 0;
 
 	// Player stuff
-    private Animation sprite, proup, prodown, proleft, proright, prowait;
 
     /**
      *
@@ -132,109 +133,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
 		// System.out.println("Horizontal count: "
         // +runningSS.getHorizontalCount());
 		// System.out.println("Vertical count: " +runningSS.getVerticalCount());
-        proup = new Animation();
 
-        proup.setAutoUpdate(true);
-
-        proup.addFrame(proMoving.getSprite(0, 8), 330);
-
-        proup.addFrame(proMoving.getSprite(1, 8), 330);
-
-        proup.addFrame(proMoving.getSprite(2, 8), 330);
-
-        proup.addFrame(proMoving.getSprite(3, 8), 330);
-
-        proup.addFrame(proMoving.getSprite(4, 8), 330);
-
-        proup.addFrame(proMoving.getSprite(5, 8), 330);
-
-        proup.addFrame(proMoving.getSprite(6, 8), 330);
-
-        proup.addFrame(proMoving.getSprite(7, 8), 330);
-
-        proup.addFrame(proMoving.getSprite(8, 8), 330);
-
-        prodown = new Animation();
-
-        prodown.setAutoUpdate(false);
-
-        prodown.addFrame(proMoving.getSprite(0, 10), 330);
-
-        prodown.addFrame(proMoving.getSprite(1, 10), 330);
-
-        prodown.addFrame(proMoving.getSprite(2, 10), 330);
-
-        prodown.addFrame(proMoving.getSprite(3, 10), 330);
-
-        prodown.addFrame(proMoving.getSprite(4, 10), 330);
-
-        prodown.addFrame(proMoving.getSprite(5, 10), 330);
-
-        prodown.addFrame(proMoving.getSprite(6, 10), 330);
-
-        prodown.addFrame(proMoving.getSprite(7, 10), 330);
-
-        prodown.addFrame(proMoving.getSprite(8, 10), 330);
-
-        proleft = new Animation();
-
-        proleft.setAutoUpdate(false);
-
-        proleft.addFrame(proMoving.getSprite(0, 9), 330);
-
-        proleft.addFrame(proMoving.getSprite(1, 9), 330);
-
-        proleft.addFrame(proMoving.getSprite(2, 9), 330);
-
-        proleft.addFrame(proMoving.getSprite(3, 9), 330);
-
-        proleft.addFrame(proMoving.getSprite(4, 9), 330);
-
-        proleft.addFrame(proMoving.getSprite(5, 9), 330);
-
-        proleft.addFrame(proMoving.getSprite(6, 9), 330);
-
-        proleft.addFrame(proMoving.getSprite(7, 9), 330);
-
-        proleft.addFrame(proMoving.getSprite(8, 9), 330);
-
-        proright = new Animation();
-
-        proright.setAutoUpdate(false);
-
-        proright.addFrame(proMoving.getSprite(0, 11), 330);
-
-        proright.addFrame(proMoving.getSprite(1, 11), 330);
-
-        proright.addFrame(proMoving.getSprite(2, 11), 330);
-
-        proright.addFrame(proMoving.getSprite(3, 11), 330);
-
-        proright.addFrame(proMoving.getSprite(4, 11), 330);
-
-        proright.addFrame(proMoving.getSprite(5, 11), 330);
-
-        proright.addFrame(proMoving.getSprite(6, 11), 330);
-
-        proright.addFrame(proMoving.getSprite(7, 11), 330);
-
-        proright.addFrame(proMoving.getSprite(8, 11), 330);
-
-        prowait = new Animation();
-
-        prowait.setAutoUpdate(true);
-
-        prowait.addFrame(proMoving.getSprite(0, 14), 733);
-
-        prowait.addFrame(proMoving.getSprite(1, 14), 733);
-
-        prowait.addFrame(proMoving.getSprite(2, 14), 733);
-
-        prowait.addFrame(proMoving.getSprite(3, 14), 733);
-
-		// wait.addFrame(runningSS.getSprite(2, 14), 733);
-		// wait.addFrame(runningSS.getSprite(5, 14), 333);
-        sprite = prowait;
+        
 
 		// *****************************************************************
 		// Obstacles etc.
