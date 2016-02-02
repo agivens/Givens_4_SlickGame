@@ -66,6 +66,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
     
     public Orb bestOrbEver;
     
+    public Player player;
+    
     //public ArrayList<Orb> orblist = new ArrayList();
 
     public itemwin grabtowin;
@@ -82,11 +84,9 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
     private static Camera camera;
     
-    private Animation sprite, proup, prodown, proleft, proright;
+   // private Animation sprite, proup, prodown, proleft, proright;
 
     public static int counter = 0;
-
-	// Player stuff
 
     /**
      *
@@ -202,7 +202,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
 		// it helps to add status reports to see what's going on
 		// but it gets old quickly
 		// System.out.println("Current X: " +player.x + " \n Current Y: "+ y);
-        sprite.draw((int) Player.x, (int) Player.y);
+        player.sprite.draw((int) Player.x, (int) Player.y);
 
 		//g.drawString("x: " + (int)player.x + "y: " +(int)player.y , player.x, player.y - 10);
         g.drawString("Health: " + Player.health, camera.cameraX + 10,
@@ -257,13 +257,13 @@ public class AloneInTheLabyrinth extends BasicGameState {
 		// there are two types of fixes. A kludge and a hack. This is a kludge.
         if (input.isKeyDown(Input.KEY_UP)) {
 
-            sprite = proup;
+            player.sprite = player.proup;
 
             float fdsc = (float) (fdelta - (SIZE * .15));
 
             if (!(isBlocked(Player.x, Player.y - fdelta) || isBlocked((float) (Player.x + SIZE + 1.5), Player.y - fdelta))) {
 
-                sprite.update(delta);
+                player.sprite.update(delta);
 
 				// The lower the delta the slower the sprite will animate.
                 Player.y -= fdelta;
@@ -272,12 +272,12 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
         } else if (input.isKeyDown(Input.KEY_DOWN)) {
 
-            sprite = prodown;
+            player.sprite = player.prodown;
 
             if (!isBlocked(Player.x, Player.y + SIZE + fdelta)
                     || !isBlocked(Player.x + SIZE - 1, Player.y + SIZE + fdelta)) {
 
-                sprite.update(delta);
+                player.sprite.update(delta);
 
                 Player.y += fdelta;
 
@@ -285,12 +285,12 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
 
-            sprite = proleft;
+            player.sprite = player.proleft;
 
             if (!(isBlocked(Player.x - fdelta, Player.y) || isBlocked(Player.x
                     - fdelta, Player.y + SIZE - 1))) {
 
-                sprite.update(delta);
+                player.sprite.update(delta);
 
                 Player.x -= fdelta;
 
@@ -298,7 +298,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
 
-            sprite = proright;
+            player.sprite = player.proright;
 
 			// the boolean-kludge-implementation
             if (cangoright
@@ -306,7 +306,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
                             Player.y) || isBlocked(Player.x + SIZE + fdelta, Player.y
                             + SIZE - 1)))) {
 
-                sprite.update(delta);
+                player.sprite.update(delta);
 
                 Player.x += fdelta;
 

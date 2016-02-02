@@ -32,8 +32,6 @@ public class Player {
     static float hitboxY = y + 8f;
 
     private static int startX, startY, width = 30, height = 42;
-    
-    private Animation sprite, proup, prodown, proleft, proright, prowait;
 
     public static Shape rect = new Rectangle(getplayershitboxX(),
             getplayershitboxY(), width, height);
@@ -41,59 +39,13 @@ public class Player {
     public static float pdelta;
 
     public static Animation playeranime;
-
-    public static void setpdelta(float somenum) {
-
-        pdelta = somenum;
-
-    }
-
-    public static float getpdelta() {
-
-        return pdelta;
-
-    }
-
-    public static float getplayersX() {
-
-        return x;
-
-    }
-
-    public static float getplayersY() {
-
-        return y;
-
-    }
-
-    public static float getplayershitboxX() {
-
-        return x + 18f;
-
-    }
-
-    public static float getplayershitboxY() {
-
-        return y + 18f;
-
-    }
-
-    public static void setplayershitboxX() {
-
-        hitboxX = getplayershitboxX();
-
-    }
-
-    public static void setplayershitboxY() {
-
-        hitboxY = getplayershitboxY();
-
-    }
-
-    public void init(GameContainer gc, StateBasedGame sbg)
-            throws SlickException {
-    SpriteSheet proMoving = new SpriteSheet(
+    
+    Animation sprite, proup, prodown, proleft, proright, prowait;
+    
+    Player() throws SlickException{
+        SpriteSheet proMoving = new SpriteSheet(
                 "res/ProtagonistSpriteSheet.png", 64, 64, 0);
+        
         proup = new Animation();
 
         proup.setAutoUpdate(true);
@@ -195,5 +147,53 @@ public class Player {
         prowait.addFrame(proMoving.getSprite(3, 14), 733);
 
         sprite = prowait;
+    }
+
+    public static void setpdelta(float somenum) {
+
+        pdelta = somenum;
+
+    }
+
+    public static float getpdelta() {
+
+        return pdelta;
+
+    }
+
+    public static float getplayersX() {
+
+        return x;
+
+    }
+
+    public static float getplayersY() {
+
+        return y;
+
+    }
+
+    public static float getplayershitboxX() {
+
+        return x + 18f;
+
+    }
+
+    public static float getplayershitboxY() {
+
+        return y + 18f;
+
+    }
+
+    public static void setplayershitboxX() {
+
+        hitboxX = getplayershitboxX();
+
+    }
+
+    public static void setplayershitboxY() {
+
+        hitboxY = getplayershitboxY();
+
     }
 }
