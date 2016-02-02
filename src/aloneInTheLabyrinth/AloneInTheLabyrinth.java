@@ -64,7 +64,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
     public Enemy numberone;
     
-    public Orb bestOrbEver;
+    public Orb powerOrb;
     
     public Player player;
     
@@ -183,7 +183,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
         grabtowin = new itemwin(4400, 4400);
         stuffwin.add(grabtowin);
         
-        bestOrbEver = new Orb((int)Player.x + 10, (int)Player.y - 10);
+        powerOrb = new Orb((int)Player.x + 10, (int)Player.y - 10);
         
 
         numberone = new Enemy(300, 300);
@@ -215,8 +215,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
         g.drawString("time passed: " + counter / 1000, camera.cameraX + 600, camera.cameraY);
 		// moveenemies();
 
-        if(bestOrbEver.isIsVisible()){
-            bestOrbEver.orb.draw(bestOrbEver.getX(), bestOrbEver.getY());
+        if(powerOrb.isIsVisible()){
+            powerOrb.orb.draw(powerOrb.getX(), powerOrb.getY());
         }
         
         for (itemwin w : stuffwin) {
