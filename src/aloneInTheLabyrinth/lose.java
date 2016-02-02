@@ -60,7 +60,7 @@ public class lose extends BasicGameState {
 
 
             throws SlickException {
-    	startimage = new Image("res/End_Screen.png");
+    	startimage = new Image("res/Lose_End_Screen.png");
 
 
         this.game = game;
