@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aloneInTheLabyrinth;
 
 
@@ -71,10 +66,6 @@ public class win extends BasicGameState {
         this.game = game;
 
 
-
-// TODO AutoÃ¢â‚¬Âgenerated method stub
-
-
     }
 
 
@@ -86,9 +77,6 @@ public class win extends BasicGameState {
 
 
             throws SlickException {
-
-
-// TODO AutoÃ¢â‚¬Âgenerated method stub
 
 
         g.setColor(Color.white);
@@ -113,9 +101,6 @@ public class win extends BasicGameState {
             throws SlickException {
 
 
-// TODO AutoÃ¢â‚¬Âgenerated method stub
-
-
     }
 
 
@@ -124,9 +109,6 @@ public class win extends BasicGameState {
 
 
     public int getID() {
-
-
-// TODO AutoÃ¢â‚¬Âgenerated method stub
 
 
         return 3;
@@ -152,10 +134,6 @@ public class win extends BasicGameState {
                 AloneInTheLabyrinth.counter = 0;
                 Player.x = 96f;
                 Player.y = 228f;
-                
-                
-                //item.isvisible = true;
-                //item1.isvisible = true;
                 itemwin.isvisible = true;
                 game.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 
@@ -166,8 +144,6 @@ public class win extends BasicGameState {
             case Input.KEY_2:
 
 
-// TODO: Implement later
-
 
                 break;
 
@@ -175,7 +151,6 @@ public class win extends BasicGameState {
             case Input.KEY_3:
 
 
-// TODO: Implement later
 
 
                 break;
