@@ -7,11 +7,6 @@ import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
-
-/**
- *
- * @author agivens
- */
 public class Player {
 
     public static float x = 96f;
