@@ -67,9 +67,6 @@ public class lose extends BasicGameState {
 
 
 
-// TODO AutoÃ¢â‚¬Âgenerated method stub
-
-
     }
 
 
@@ -86,13 +83,9 @@ public class lose extends BasicGameState {
 
 
 
-// TODO AutoÃ¢â‚¬Âgenerated method stub
-
-
         g.setColor(Color.white);
 
 
-        //g.drawString("You LOSE!", 450, 200);
         g.drawString("press 1 to try again", 400, 320);
 
 
@@ -112,7 +105,6 @@ public class lose extends BasicGameState {
             throws SlickException {
 
 
-// TODO AutoÃ¢â‚¬Âgenerated method stub
 
 
     }
@@ -125,7 +117,6 @@ public class lose extends BasicGameState {
     public int getID() {
 
 
-// TODO AutoÃ¢â‚¬Âgenerated method stub
 
 
         return 2;
@@ -152,7 +143,6 @@ public class lose extends BasicGameState {
                 itemwin.isvisible = true;
                 Player.x = 96f;
                 Player.y = 228f;
-                //redo potions and reset cordinates of player
                 game.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 
 
@@ -162,8 +152,6 @@ public class lose extends BasicGameState {
             case Input.KEY_2:
 
 
-// TODO: Implement later
-
 
                 break;
 
@@ -171,7 +159,6 @@ public class lose extends BasicGameState {
             case Input.KEY_3:
 
 
-// TODO: Implement later
 
 
                 break;
