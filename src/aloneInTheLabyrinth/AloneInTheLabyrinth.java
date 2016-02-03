@@ -128,7 +128,6 @@ public class AloneInTheLabyrinth extends BasicGameState {
         stuffwin.add(grabtowin);
         
         powerOrb = new Orb((int)Player.x + 10, (int)Player.y - 10);
-        
 
         numberone = new Enemy(300, 300);
         monster.add(numberone);
