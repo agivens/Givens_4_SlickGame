@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aloneInTheLabyrinth;
 
 import org.newdawn.slick.Image;
@@ -26,7 +21,7 @@ public class itemwin {
     itemwin(int a, int b) throws SlickException {
         this.x = a;
         this.y = b;
-        this.hitbox = new Rectangle(a, b, 32, 32);// 64 is the width of the item
+        this.hitbox = new Rectangle(a, b, 32, 32);
         this.currentImage = enditem;
 
     }
