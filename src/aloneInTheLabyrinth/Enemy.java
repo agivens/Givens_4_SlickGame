@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package aloneInTheLabyrinth;
 
 import org.newdawn.slick.Animation;
@@ -30,8 +25,6 @@ public class Enemy {
     private Animation antagonist, anup, andown, anleft, anright, anwait, skdead;
 
     int SIZE = 64;
-
-    //static int crewsize;
 
     float Bx;
 
@@ -86,8 +79,6 @@ public class Enemy {
     public Shape ahitbox;
 
     public boolean isvisible = true;
-
-    //System.out.println("Right limit: " + rightlimit);
 
     public enum Direction {
 
@@ -226,7 +217,7 @@ public class Enemy {
 
         anwait = new Animation();
 
-        anwait.setAutoUpdate(true); //turn autoupdate to false so he stops
+        anwait.setAutoUpdate(true);
 
         anwait.addFrame(enemyRO.getSprite(0, 14), 733);
 
@@ -247,8 +238,6 @@ public class Enemy {
 
     boolean isBlocked(float xcheck, float ycheck) {
 
-        // System.out.println("The skeleton " + this.getID() + " Checking on the tile at x " + xcheck + " and at y " + ycheck);
-
         int xBlock = (int) (xcheck / SIZE);
 
         int yBlock = (int) (ycheck / SIZE);
@@ -258,8 +247,6 @@ public class Enemy {
 
                 && yBlock > 0)) {
 
-
-            // System.out.println("Am I blocked ? " + blocked.blocked[xBlock][yBlock] );
 
             return blocked.blocked[xBlock][yBlock];
 
@@ -297,15 +284,9 @@ public class Enemy {
 
     private boolean canigoright() {
 
-        // fdelta = player.getpdelta();
-
-        //System.out.println("Can I go right? " + (!isBlocked(this.Bx + SIZE + fdelta, this.By) || !isBlocked(this.Bx + SIZE + fdelta, this.By - 1)));
-
         return (!isBlocked(this.Bx + SIZE + 6, this.By - 16)
 
-                || !isBlocked(this.Bx + SIZE + 16, this.By));
-
-        //return true;       
+                || !isBlocked(this.Bx + SIZE + 16, this.By));      
 
 
     }
@@ -315,28 +296,14 @@ public class Enemy {
 
         fdelta = Player.getpdelta();
 
-        //if (!(!isBlocked(this.Bx - SIZE, this.By) || !isBlocked(this.Bx - fdelta, this.By + SIZE - 16)) || !isBlocked(this.Bx, this.By + SIZE/2) || !isBlocked(this.Bx -16, this.By -64))
-
-        //{System.out.println("I can't go left. My id is " + this.getID());
-
-        // }   
-
-        //{}
-
         return (!isBlocked(this.Bx - SIZE / 2, this.By + SIZE / 2)
 
                 || !isBlocked(this.Bx - SIZE, this.By)
 
-                || !isBlocked(this.Bx - fdelta, this.By + SIZE - 16) //|| !isBlocked(this.Bx, this.By + SIZE/2)
-
-                // || !isBlocked(this.Bx -16, this.By -64)
-
-                // || !isBlocked(this.Bx + 9, this.By + 8)
+                || !isBlocked(this.Bx - fdelta, this.By + SIZE - 16)
 
                 );
 
-
-        //|| !isBlocked(this.Bx + SIZE/2 -1,this.By + SIZE )));
 
     }
 
@@ -449,7 +416,6 @@ public class Enemy {
 
     void move() throws SlickException {
 
-        //float fdelta = 18 * 0.1f;
 
         
 
@@ -459,16 +425,9 @@ public class Enemy {
 
             this.moveleft();
 
-        } else if (this.Bx < Player.getplayersX()) {
+        } else {
 
             this.moveright();
-
-            // System.out.println("I'm moving right. My id is " + this.getID() + " My x is " + this.Bx + " and my Y is " + this.By);
-
-            //System.out.println("By the way the player's X is " + player.x + " and the player's Y " + player.y);
-
-
-        } else {//System.out.println("I can't move left or right. My x is " + this.Bx + " and my Y is " + this.By);
 
         }
 
@@ -484,8 +443,6 @@ public class Enemy {
         } else {
 
             int r = (int) (Math.random() * (5 - 1)) + 1;
-
-            //System.out.println("The number is : " + r);
 
             if (r == 1) {
 
