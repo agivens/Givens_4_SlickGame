@@ -74,8 +74,6 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
     public ArrayList<Enemy> monster = new ArrayList();
 
-    private boolean[][] hostiles;
-
     private static TiledMap forestMap;
 
     private static AppGameContainer app;
@@ -125,8 +123,6 @@ public class AloneInTheLabyrinth extends BasicGameState {
             }
 
         }
-
-        hostiles = new boolean[forestMap.getWidth()][forestMap.getHeight()];
 
         grabtowin = new itemwin(4400, 4400);
         stuffwin.add(grabtowin);
