@@ -68,8 +68,6 @@ public class Menu extends BasicGameState {
 
 
 
-// TODO AutoÃ¢â‚¬Âgenerated method stub
-
 
     }
 
@@ -83,8 +81,6 @@ public class Menu extends BasicGameState {
 
             throws SlickException {
 
-
-// TODO AutoÃ¢â‚¬Âgenerated method stub
     	
     	
 
@@ -93,17 +89,6 @@ public class Menu extends BasicGameState {
         
         startimage.draw();
 
-        //g.drawString("stuff", 300, 200);
-        
-        //g.drawString("collect the antidote before time runs out! red potions are health and yellow potions make you run faster", 50, 300);
-
-
-        //g.drawString("1. Play Game", 50, 100);
-
-        //g.drawString("2. High Scores(", 50, 120);
-
-
-        //g.drawString("3. Quit", 50, 140);
 
 
     }
@@ -119,7 +104,6 @@ public class Menu extends BasicGameState {
             throws SlickException {
 
 
-// TODO AutoÃ¢â‚¬Âgenerated method stub
 
 
     }
@@ -131,8 +115,6 @@ public class Menu extends BasicGameState {
 
     public int getID() {
 
-
-// TODO AutoÃ¢â‚¬Âgenerated method stub
 
 
         return 0;
@@ -163,16 +145,12 @@ public class Menu extends BasicGameState {
             case Input.KEY_2:
 
 
-// TODO: Implement later
-
 
                 break;
 
 
             case Input.KEY_3:
 
-
-// TODO: Implement later
 
 
                 break;
