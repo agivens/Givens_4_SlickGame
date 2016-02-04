@@ -64,7 +64,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
     public Enemy numberone;
     
-    public Orb powerOrb;
+    public Orb magic8ball;
     
     public Player player;
 
@@ -99,7 +99,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
         gc.setShowFPS(false);
 
-        forestMap = new TiledMap("res/agivens_4_map.tmx");
+        forestMap = new TiledMap("res/labyrinthMap.tmx");
 
         camera = new Camera(gc, forestMap);
 
@@ -127,7 +127,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
         grabtowin = new itemwin(4400, 4400);
         stuffwin.add(grabtowin);
         
-        powerOrb = new Orb((int)Player.x + 10, (int)Player.y - 10);
+        magic8ball = new Orb((int)Player.x + 10, (int)Player.y - 10);
 
         numberone = new Enemy(300, 300);
         monster.add(numberone);
@@ -142,7 +142,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
         camera.translateGraphics();
 
-        player.sprite.draw((int) Player.x, (int) Player.y);
+        player.sprite.draw((int) player.x, (int) player.y);
 
         g.drawString("Health: " + Player.health, camera.cameraX + 10,
                 camera.cameraY + 10);
@@ -152,8 +152,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
         g.drawString("time passed: " + counter / 1000, camera.cameraX + 600, camera.cameraY);
 
-        if(powerOrb.isIsVisible()){
-            powerOrb.orb.draw(powerOrb.getX(), powerOrb.getY());
+        if(magic8ball.isIsVisible()){
+            magic8ball.orb.draw(magic8ball.getX(), magic8ball.getY());
         }
         
         for (itemwin w : stuffwin) {
@@ -215,80 +215,58 @@ public class AloneInTheLabyrinth extends BasicGameState {
             }
 
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
-
             player.sprite = player.proleft;
-
             if (!(isBlocked(Player.x - fdelta, Player.y) || isBlocked(Player.x
                     - fdelta, Player.y + SIZE - 1))) {
-
                 player.sprite.update(delta);
-
                 Player.x -= fdelta;
-
             }
-
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
-
             player.sprite = player.proright;
-
             if (cangoright
                     && (!(isBlocked(Player.x + SIZE + fdelta,
                             Player.y) || isBlocked(Player.x + SIZE + fdelta, Player.y
                             + SIZE - 1)))) {
-
                 player.sprite.update(delta);
-
                 Player.x += fdelta;
 
             }
-
         } else if (input.isKeyDown(Input.KEY_SPACE)) {
-            
+            magic8ball.setIsVisible(true);
         }
 
         Player.rect.setLocation(Player.getplayershitboxX(),
                 Player.getplayershitboxY());
 
         for (itemwin w : stuffwin) {
-
             if (Player.rect.intersects(w.hitbox)) {
                 if (w.isvisible) {
                     w.isvisible = false;
                     makevisible();
                     sbg.enterState(3, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
-
                 }
-
             }
         }
         for (Enemy m : monster) {
-
             if (Player.rect.intersects(m.ahitbox)) {
                 if (m.isvisible) {
-
                     Player.health -= 1000;
                 }
-
             }
         }
-
         Player.health = 1000;
         if (Player.health <= 0) {
             makevisible();
             sbg.enterState(2, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
         }
-
     }
-
+    
     public int getID() {
-
         return 1;
-
     }
-
+    
     public void makevisible() {
         for (itemwin h : stuffwin) {
-
             h.isvisible = true;
         }
     }
