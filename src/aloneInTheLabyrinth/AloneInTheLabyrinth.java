@@ -151,7 +151,6 @@ public class AloneInTheLabyrinth extends BasicGameState {
                 camera.cameraY + 25);
 
         g.drawString("time passed: " + counter / 1000, camera.cameraX + 600, camera.cameraY);
-		// moveenemies();
 
         if(powerOrb.isIsVisible()){
             powerOrb.orb.draw(powerOrb.getX(), powerOrb.getY());
