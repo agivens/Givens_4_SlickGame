@@ -5,10 +5,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
-/**
- *
- * @author agivens
- */
 public class Orb {
     private int x, y, width, height;
     private int dmg, hitboxX, hitboxY;
