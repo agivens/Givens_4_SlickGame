@@ -147,7 +147,11 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
             }
         } else if (input.isKeyDown(Input.KEY_SPACE)) {
-            magic8ball.setIsVisible(true);
+            magic8ball.setX((int) player.x);
+            magic8ball.setY((int) player.y);
+            magic8ball.hitbox.setX(magic8ball.getX());
+            magic8ball.hitbox.setY(magic8ball.getY());
+            magic8ball.setIsVisible(!magic8ball.isIsVisible());
         }
 
         Player.rect.setLocation(Player.getplayershitboxX(),
@@ -164,9 +168,14 @@ public class AloneInTheLabyrinth extends BasicGameState {
         }
         for (Enemy m : monster) {
             if (Player.rect.intersects(m.ahitbox)) {
-                if (m.isvisible) {
+                if (m.isVisible) {
                     Player.health -= 1000;
                 }
+            }
+        }
+        for (Enemy e : monster) {
+            if (magic8ball.hitbox.intersects(e.rect)){
+                e.isVisible = false;
             }
         }
         Player.health = 1000;
