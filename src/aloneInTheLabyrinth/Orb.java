@@ -27,7 +27,6 @@ public class Orb {
     }
     
     public int gettimeExists(){
-        
         return this.timeExists;
     }
     
