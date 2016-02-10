@@ -8,7 +8,7 @@ public class Orb {
     private int x, y, width, height;
     private int dmg, hitboxX, hitboxY;
     private boolean isVisible;
-    Image orb;
+    Image orbimage;
     Shape hitbox;
     private int timeExists;
     private int direction;
@@ -17,8 +17,9 @@ public class Orb {
         this.x = a;
         this.y = b;
         this.isVisible = false;
-        this.orb = new Image ("res/Power_Orbs/TestSet_12.png");
+        this.orbimage = new Image ("res/Power_Orbs/TestSet_12.png");
         this.hitbox = new Rectangle (a, b, 32, 32);
+        this.timeExists = 0;
     }
         
     public void settimeExists(int t){
@@ -99,11 +100,11 @@ public class Orb {
     }
 
     public Image getOrb() {
-        return orb;
+        return orbimage;
     }
 
     public void setOrb(Image orb) {
-        this.orb = orb;
+        this.orbimage = orb;
     }
 
     public Shape getHitbox() {
