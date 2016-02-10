@@ -8,6 +8,9 @@ import org.newdawn.slick.geom.Shape;
 public class Orb {
     private int x, y, width, height;
     private int dmg, hitboxX, hitboxY;
+    private boolean isVisible;
+    Image orb;
+    Shape hitbox;
 
     public int getHitboxX() {
         return hitboxX;
@@ -24,9 +27,7 @@ public class Orb {
     public void setHitboxY(int hitboxY) {
         this.hitboxY = hitboxY;
     }
-    private boolean isVisible;
-    Image orb;
-    Shape hitbox;
+
     
     public Orb(int a, int b) throws SlickException{
         this.x = a;
