@@ -92,7 +92,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
                 camera.cameraY + 25);
         g.drawString("time passed: " + counter / 1000, camera.cameraX + 600, camera.cameraY);
         if(magic8ball.isIsVisible()){
-            magic8ball.orb.draw(magic8ball.getX(), magic8ball.getY());
+            magic8ball.orbimage.draw(magic8ball.getX(), magic8ball.getY());
         }
         for (itemwin w : stuffwin) {
             if (w.isvisible) {
