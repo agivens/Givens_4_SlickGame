@@ -10,7 +10,30 @@ public class Orb {
     private boolean isVisible;
     Image orb;
     Shape hitbox;
+    private int timeExists;
+    private int direction;
 
+    public void settimeExists(int t){
+        this.timeExists = t;
+    }
+    
+    public int gettimeExists(){
+        
+        return this.timeExists;
+    }
+    
+    public void countdown(){
+        this.timeExists--;
+    }
+    
+    public void setDirection(int i){
+        this.direction = i;
+    }
+    
+    public int getDirection(){
+        return this.direction;
+    }
+    
     public int getHitboxX() {
         return hitboxX;
     }
