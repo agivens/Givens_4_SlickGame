@@ -13,6 +13,14 @@ public class Orb {
     private int timeExists;
     private int direction;
 
+    public Orb(int a, int b) throws SlickException{
+        this.x = a;
+        this.y = b;
+        this.isVisible = false;
+        this.orb = new Image ("res/Power_Orbs/TestSet_12.png");
+        this.hitbox = new Rectangle (a, b, 32, 32);
+    }
+        
     public void settimeExists(int t){
         this.timeExists = t;
     }
@@ -48,15 +56,6 @@ public class Orb {
 
     public void setHitboxY(int hitboxY) {
         this.hitboxY = hitboxY;
-    }
-
-    
-    public Orb(int a, int b) throws SlickException{
-        this.x = a;
-        this.y = b;
-        this.isVisible = false;
-        this.orb = new Image ("res/Power_Orbs/TestSet_12.png");
-        this.hitbox = new Rectangle (a, b, 32, 32);
     }
 
     public int getX() {
