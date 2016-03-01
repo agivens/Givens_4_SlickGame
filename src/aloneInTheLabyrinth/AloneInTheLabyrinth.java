@@ -88,9 +88,9 @@ public class AloneInTheLabyrinth extends BasicGameState {
         player.sprite.draw((int) player.x, (int) player.y);
         g.drawString("Health: " + Player.health, camera.cameraX + 10,
                 camera.cameraY + 10);
-        g.drawString("speed: " + (int) (Player.speed * 10), camera.cameraX + 10,
+        g.drawString("Score: " + Player.score, camera.cameraX + 10,
                 camera.cameraY + 25);
-        g.drawString("time passed: " + counter / 1000, camera.cameraX + 600, camera.cameraY);
+        g.drawString("Time Passed: " + counter / 1000, camera.cameraX + 600, camera.cameraY);
         if(magic8ball.isIsVisible()){
             magic8ball.orbimage.draw(magic8ball.getX(), magic8ball.getY());
         }
@@ -147,6 +147,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
             }
         } else if (input.isKeyDown(Input.KEY_SPACE)) {
+            magic8ball.setDirection(player.getDirection());
+            magic8ball.settimeExists(100);
             magic8ball.setX((int) player.x);
             magic8ball.setY((int) player.y);
             magic8ball.hitbox.setX(magic8ball.getX());
@@ -166,22 +168,42 @@ public class AloneInTheLabyrinth extends BasicGameState {
                 }
             }
         }
-        for (Enemy m : monster) {
-            if (Player.rect.intersects(m.ahitbox)) {
-                if (m.isVisible) {
-                    Player.health -= 1000;
-                }
-            }
-        }
         for (Enemy e : monster) {
             if (magic8ball.hitbox.intersects(e.rect)){
                 e.isVisible = false;
+            }
+        }
+        if (magic8ball.isIsVisible()) {
+            if (magic8ball.gettimeExists() > 0) {
+                if (magic8ball.getDirection() == 0) {
+                    magic8ball.setX((int) player.x);
+                    magic8ball.setY(magic8ball.getY() - 5);
+                } else if (magic8ball.getDirection() == 2) {
+                    magic8ball.setX((int) player.x);
+                    magic8ball.setY(magic8ball.getY() + 5);
+                } else if (magic8ball.getDirection() == 3) {
+                    magic8ball.setX(magic8ball.getX() - 5);
+                    magic8ball.setY(magic8ball.getY());
+                } else if (magic8ball.getDirection() == 1) {
+                    magic8ball.setX(magic8ball.getX() + 5);
+                    magic8ball.setY(magic8ball.getY());
+                }
+                magic8ball.hitbox.setX(magic8ball.getX());
+                magic8ball.hitbox.setY(magic8ball.getY());
+                magic8ball.countdown();
+            } else {
+                magic8ball.setIsVisible(false);
             }
         }
         Player.health = 1000;
         if (Player.health <= 0) {
             makevisible();
             sbg.enterState(2, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
+        }
+        for (Enemy e : monster) {
+            if (e.isVisible) {
+                e.move();
+            }
         }
     }
     
