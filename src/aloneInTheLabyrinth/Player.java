@@ -11,7 +11,8 @@ public class Player {
 
     public static float x = 96f;
     public static float y = 228f;
-    public static int health = 100000;
+    public static int health = 1000;
+    public static int score = 0;
     public static float speed = .4f;
     static float hitboxX = x + 8f;
     static float hitboxY = y + 8f;
@@ -21,6 +22,7 @@ public class Player {
     public static float pdelta;
     public static Animation playeranime;
     Animation sprite, proup, prodown, proleft, proright, prowait;
+    private int direction;
     
     public Player() throws SlickException{
         SpriteSheet proMoving = new SpriteSheet(
@@ -113,5 +115,13 @@ public class Player {
 
     public static void setplayershitboxY() {
         hitboxY = getplayershitboxY();
+    }
+    
+    public void setDirection(int i){
+        this.direction = i;
+    }
+    
+    public int getDirection(){
+        return this.direction;
     }
 }
