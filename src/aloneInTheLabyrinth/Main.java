@@ -5,7 +5,7 @@ import org.newdawn.slick.state.*;
 
 public class Main extends StateBasedGame {
 
-    public static final String gamename = "Unwavering";
+    public static final String gamename = "Alone in the Labyrinth";
     public static final int play = 0;
     public static final int xSize = 1000;
     public static final int ySize = 750;
