@@ -45,7 +45,7 @@ public class win extends BasicGameState {
     public void keyReleased(int key, char c) {
         switch (key) {
             case Input.KEY_1:
-                Player.health  = 100000;
+                Player.health  = 1000;
                 Player.speed = .4f;
                 AloneInTheLabyrinth.counter = 0;
                 Player.x = 96f;
