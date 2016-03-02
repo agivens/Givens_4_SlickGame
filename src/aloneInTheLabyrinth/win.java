@@ -50,7 +50,7 @@ public class win extends BasicGameState {
                 AloneInTheLabyrinth.counter = 0;
                 Player.x = 96f;
                 Player.y = 228f;
-                itemwin.isvisible = true;
+                PassItem.isvisible = true;
                 game.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
                 break;
             case Input.KEY_2:
