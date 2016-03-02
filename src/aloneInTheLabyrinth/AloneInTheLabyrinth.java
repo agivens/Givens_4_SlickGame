@@ -40,8 +40,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
     public Enemy numberone;
     public Orb magic8ball;
     public Player player;
-    public itemwin grabtowin;
-    public ArrayList<itemwin> stuffwin = new ArrayList();
+    public PassItem grabtopass;
+    public ArrayList<PassItem> stuffpass = new ArrayList();
     public ArrayList<Enemy> monster = new ArrayList();
     private static TiledMap forestMap;
     private static AppGameContainer app;
@@ -72,8 +72,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
                 }
             }
         }
-        grabtowin = new itemwin(4400, 4400);
-        stuffwin.add(grabtowin);
+        grabtopass = new PassItem(4400, 4400);
+        stuffpass.add(grabtopass);
         magic8ball = new Orb((int)Player.x + 10, (int)Player.y - 10);
         numberone = new Enemy(300, 300);
         monster.add(numberone);
@@ -94,7 +94,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
         if(magic8ball.isIsVisible()){
             magic8ball.orbimage.draw(magic8ball.getX(), magic8ball.getY());
         }
-        for (itemwin w : stuffwin) {
+        for (PassItem w : stuffpass) {
             if (w.isvisible) {
                 w.currentImage.draw(w.x, w.y);
             }
@@ -159,7 +159,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
         Player.rect.setLocation(Player.getplayershitboxX(),
                 Player.getplayershitboxY());
 
-        for (itemwin w : stuffwin) {
+        for (PassItem w : stuffpass) {
             if (Player.rect.intersects(w.hitbox)) {
                 if (w.isvisible) {
                     w.isvisible = false;
@@ -212,7 +212,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
     }
     
     public void makevisible() {
-        for (itemwin h : stuffwin) {
+        for (PassItem h : stuffpass) {
             h.isvisible = true;
         }
     }
