@@ -217,15 +217,10 @@ public class Enemy {
     void move() throws SlickException {
 
         if (true) {
-
             if (this.Bx > Player.getplayersX()) {
-
                 this.moveleft();
-
             } else {
-
                 this.moveright();
-
             }
             
             if (this.By > Player.getplayersY()) {
@@ -244,7 +239,6 @@ public class Enemy {
                     this.moveright();
                 }
             }
-
         } else {
             this.currentanime = skdead;
         }
