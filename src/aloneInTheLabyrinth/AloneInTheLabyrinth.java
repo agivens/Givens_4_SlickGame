@@ -175,7 +175,6 @@ public class AloneInTheLabyrinth extends BasicGameState {
         }
         for (Enemy e : monster) {
             if (Player.rect.intersects(e.rect)){
-                e.isVisible = false;
                 Player.health -= 500;
             }
         }
