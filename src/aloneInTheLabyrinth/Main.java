@@ -14,8 +14,8 @@ public class Main extends StateBasedGame {
         super(gamename);
         this.addState(new Menu(xSize, ySize));
         this.addState(new AloneInTheLabyrinth(xSize, ySize));
-        this.addState(new lose(xSize, ySize));
-        this.addState(new win(xSize, ySize));
+        this.addState(new Lose(xSize, ySize));
+        this.addState(new Win(xSize, ySize));
     }
 
     public void initStatesList(GameContainer gc) throws SlickException {
