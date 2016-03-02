@@ -49,7 +49,7 @@ public class lose extends BasicGameState {
                 Player.health  = 1000;
                 Player.speed = .4f;
                 AloneInTheLabyrinth.counter = 0;
-                itemwin.isvisible = true;
+                PassItem.isvisible = true;
                 Player.x = 96f;
                 Player.y = 228f;
                 game.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
