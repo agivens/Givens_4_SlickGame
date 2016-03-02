@@ -173,6 +173,12 @@ public class AloneInTheLabyrinth extends BasicGameState {
                 e.isVisible = false;
             }
         }
+        for (Enemy e : monster) {
+            if (Player.rect.intersects(e.rect)){
+                e.isVisible = false;
+                Player.health -= 500;
+            }
+        }
         if (magic8ball.isIsVisible()) {
             if (magic8ball.gettimeExists() > 0) {
                 if (magic8ball.getDirection() == 0) {
