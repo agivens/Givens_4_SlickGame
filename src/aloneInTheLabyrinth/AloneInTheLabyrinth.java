@@ -82,13 +82,13 @@ public class AloneInTheLabyrinth extends BasicGameState {
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g)
             throws SlickException {
 
-        camera.centerOn((int) Player.x, (int) Player.y);
+        camera.centerOn((int) player.x, (int) player.y);
         camera.drawMap();
         camera.translateGraphics();
         player.sprite.draw((int) player.x, (int) player.y);
-        g.drawString("Health: " + Player.health, camera.cameraX + 10,
+        g.drawString("Health: " + player.health, camera.cameraX + 10,
                 camera.cameraY + 10);
-        g.drawString("Score: " + Player.score, camera.cameraX + 10,
+        g.drawString("Score: " + player.score, camera.cameraX + 10,
                 camera.cameraY + 25);
         g.drawString("Time Passed: " + counter / 1000, camera.cameraX + 600, camera.cameraY);
         if(magic8ball.isIsVisible()){
@@ -109,41 +109,41 @@ public class AloneInTheLabyrinth extends BasicGameState {
         
         counter += delta;
         Input input = gc.getInput();
-        float fdelta = delta * Player.speed;
-        Player.setpdelta(fdelta);
+        float fdelta = delta * player.speed;
+        player.setpdelta(fdelta);
         double rightlimit = (forestMap.getWidth() * SIZE) - (SIZE * 0.75);
-        float projectedright = Player.x + fdelta + SIZE;
+        float projectedright = player.x + fdelta + SIZE;
         boolean cangoright = projectedright < rightlimit;
 
         if (input.isKeyDown(Input.KEY_UP)) {
             player.sprite = player.proup;
             float fdsc = (float) (fdelta - (SIZE * .15));
-            if (!(isBlocked(Player.x, Player.y - fdelta) || isBlocked((float) (Player.x + SIZE + 1.5), Player.y - fdelta))) {
+            if (!(isBlocked(player.x, player.y - fdelta) || isBlocked((float) (player.x + SIZE + 1.5), player.y - fdelta))) {
                 player.sprite.update(delta);
-                Player.y -= fdelta;
+                player.y -= fdelta;
             }
         } else if (input.isKeyDown(Input.KEY_DOWN)) {
             player.sprite = player.prodown;
-            if (!isBlocked(Player.x, Player.y + SIZE + fdelta)
-                    || !isBlocked(Player.x + SIZE - 1, Player.y + SIZE + fdelta)) {
+            if (!isBlocked(player.x, player.y + SIZE + fdelta)
+                    || !isBlocked(player.x + SIZE - 1, player.y + SIZE + fdelta)) {
                 player.sprite.update(delta);
-                Player.y += fdelta;
+                player.y += fdelta;
             }
         } else if (input.isKeyDown(Input.KEY_LEFT)) {
             player.sprite = player.proleft;
-            if (!(isBlocked(Player.x - fdelta, Player.y) || isBlocked(Player.x
-                    - fdelta, Player.y + SIZE - 1))) {
+            if (!(isBlocked(player.x - fdelta, player.y) || isBlocked(player.x
+                    - fdelta, player.y + SIZE - 1))) {
                 player.sprite.update(delta);
-                Player.x -= fdelta;
+                player.x -= fdelta;
             }
         } else if (input.isKeyDown(Input.KEY_RIGHT)) {
             player.sprite = player.proright;
             if (cangoright
-                    && (!(isBlocked(Player.x + SIZE + fdelta,
-                            Player.y) || isBlocked(Player.x + SIZE + fdelta, Player.y
+                    && (!(isBlocked(player.x + SIZE + fdelta,
+                            player.y) || isBlocked(player.x + SIZE + fdelta, player.y
                             + SIZE - 1)))) {
                 player.sprite.update(delta);
-                Player.x += fdelta;
+                player.x += fdelta;
 
             }
         } else if (input.isKeyDown(Input.KEY_SPACE)) {
@@ -156,11 +156,11 @@ public class AloneInTheLabyrinth extends BasicGameState {
             magic8ball.setIsVisible(!magic8ball.isIsVisible());
         }
 
-        Player.rect.setLocation(Player.getplayershitboxX(),
-                Player.getplayershitboxY());
+        player.rect.setLocation(player.getplayershitboxX(),
+                player.getplayershitboxY());
 
         for (PassItem w : stuffpass) {
-            if (Player.rect.intersects(w.hitbox)) {
+            if (player.rect.intersects(w.hitbox)) {
                 if (w.isvisible) {
                     w.isvisible = false;
                     makevisible();
@@ -174,8 +174,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
             }
         }
         for (Enemy e : monster) {
-            if (Player.rect.intersects(e.rect)){
-                Player.health -= 500;
+            if (player.rect.intersects(e.rect)){
+                player.health -= 500;
             }
         }
         if (magic8ball.isIsVisible()) {
@@ -200,8 +200,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
                 magic8ball.setIsVisible(false);
             }
         }
-        Player.health = 1000;
-        if (Player.health <= 0) {
+        player.health = 1000;
+        if (player.health <= 0) {
             makevisible();
             sbg.enterState(2, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
         }
