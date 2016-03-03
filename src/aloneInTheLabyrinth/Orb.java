@@ -17,7 +17,7 @@ public class Orb {
         this.x = a;
         this.y = b;
         this.isVisible = false;
-        this.orbimage = new Image ("res/Orbs/TestSet_7.png");
+        this.orbimage = new Image ("res/orbs/TestSet_12.png");
         this.hitbox = new Rectangle (a, b, 32, 32);
         this.timeExists = 0;
     }
