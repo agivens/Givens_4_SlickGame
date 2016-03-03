@@ -58,7 +58,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
         gc.setTargetFrameRate(60);
         gc.setShowFPS(false);
-        forestMap = new TiledMap("res/labyrinthMap.tmx");
+        forestMap = new TiledMap("res/d4.tmx");
         camera = new Camera(gc, forestMap);
 
         blocked.blocked = new boolean[forestMap.getWidth()][forestMap.getHeight()];
@@ -74,8 +74,8 @@ public class AloneInTheLabyrinth extends BasicGameState {
         }
         grabtopass = new PassItem(4400, 4400);
         stuffpass.add(grabtopass);
-        magic8ball = new Orb((int)Player.x + 10, (int)Player.y - 10);
-        numberone = new Enemy(300, 300);
+        magic8ball = new Orb((int) player.x, (int) player.y);
+        numberone = new Enemy((int) player.x + 150, (int) player.y + 150);
         monster.add(numberone);
     }
 
