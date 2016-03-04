@@ -246,10 +246,4 @@ public class AloneInTheLabyrinth extends BasicGameState {
         int yBlock = (int) ty / SIZE;
         return blocked.blocked[xBlock][yBlock];
     }
-    
-    private boolean isTrap(float tx, float ty) {
-        int xBlock = (int) tx / SIZE;
-        int yBlock = (int) ty / SIZE;
-        return trap.trap[xBlock][yBlock];
-    }
 }
