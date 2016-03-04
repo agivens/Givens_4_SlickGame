@@ -34,6 +34,13 @@ class blocked {
         return blocked;
     }
 }
+class trap {
+
+    public static boolean[][] trap;
+    public static boolean[][] gettrap() {
+        return trap;
+    }
+}
 
 public class AloneInTheLabyrinth extends BasicGameState {
 
@@ -69,6 +76,17 @@ public class AloneInTheLabyrinth extends BasicGameState {
                         "blocked", "false");
                 if ("true".equals(value)) {
                     blocked.blocked[xAxis][yAxis] = true;
+                }
+            }
+        }
+        trap.trap = new boolean[forestMap.getWidth()][forestMap.getHeight()];
+        for (int xAxis = 0; xAxis < forestMap.getWidth(); xAxis++) {
+            for (int yAxis = 0; yAxis < forestMap.getHeight(); yAxis++) {
+                int tileID = forestMap.getTileId(xAxis, yAxis, 1);
+                String value = forestMap.getTileProperty(tileID,
+                        "trap", "false");
+                if ("true".equals(value)) {
+                    trap.trap[xAxis][yAxis] = true;
                 }
             }
         }
@@ -226,5 +244,11 @@ public class AloneInTheLabyrinth extends BasicGameState {
         int xBlock = (int) tx / SIZE;
         int yBlock = (int) ty / SIZE;
         return blocked.blocked[xBlock][yBlock];
+    }
+    
+    private boolean isTrap(float tx, float ty) {
+        int xBlock = (int) tx / SIZE;
+        int yBlock = (int) ty / SIZE;
+        return trap.trap[xBlock][yBlock];
     }
 }
