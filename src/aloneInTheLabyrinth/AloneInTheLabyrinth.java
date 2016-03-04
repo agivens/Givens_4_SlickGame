@@ -87,6 +87,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
                         "trap", "false");
                 if ("true".equals(value)) {
                     trap.trap[xAxis][yAxis] = true;
+                    makevisible();
                     sbg.enterState(2, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
                 }
             }
