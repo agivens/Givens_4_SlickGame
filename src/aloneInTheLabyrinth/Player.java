@@ -9,18 +9,18 @@ import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 public class Player {
 
-    public static float x = 96f;
-    public static float y = 228f;
-    public static int health = 1000;
-    public static int score = 0;
-    public static float speed = .4f;
-    static float hitboxX = x + 8f;
-    static float hitboxY = y + 8f;
-    private static int startX, startY, width = 30, height = 42;
-    public static Shape rect = new Rectangle(getplayershitboxX(),
+    public   float x = 96f;
+    public   float y = 228f;
+    public   int health = 1000;
+    public   int score = 0;
+    public   float speed = .4f;
+      float hitboxX = x + 8f;
+      float hitboxY = y + 8f;
+    private   int startX, startY, width = 30, height = 42;
+    public   Shape rect = new Rectangle(getplayershitboxX(),
             getplayershitboxY(), width, height);
-    public static float pdelta;
-    public static Animation playeranime;
+    public   float pdelta;
+    public   Animation playeranime;
     Animation sprite, proup, prodown, proleft, proright, prowait;
     private int direction;
     
@@ -85,35 +85,35 @@ public class Player {
         sprite = prowait;
     }
 
-    public static void setpdelta(float somenum) {
+    public   void setpdelta(float somenum) {
         pdelta = somenum;
     }
 
-    public static float getpdelta() {
+    public   float getpdelta() {
         return pdelta;
     }
 
-    public static float getplayersX() {
+    public   float getplayersX() {
         return x;
     }
 
-    public static float getplayersY() {
+    public   float getplayersY() {
         return y;
     }
 
-    public static float getplayershitboxX() {
+    public   float getplayershitboxX() {
         return x + 18f;
     }
 
-    public static float getplayershitboxY() {
+    public   float getplayershitboxY() {
         return y + 18f;
     }
 
-    public static void setplayershitboxX() {
+    public   void setplayershitboxX() {
         hitboxX = getplayershitboxX();
     }
 
-    public static void setplayershitboxY() {
+    public   void setplayershitboxY() {
         hitboxY = getplayershitboxY();
     }
     

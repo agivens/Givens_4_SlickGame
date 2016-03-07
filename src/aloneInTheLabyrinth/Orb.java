@@ -1,4 +1,5 @@
 package aloneInTheLabyrinth;
+
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
@@ -8,25 +9,27 @@ public class Orb {
     private int x, y, width, height;
     private int dmg, hitboxX, hitboxY;
     private boolean isVisible;
-    Image orbimage;
-    Shape hitbox;
+    public Image orbpic;
+    Shape hitbox; 
     private int timeExists;
-    private int direction;
-
-    public Orb(int a, int b) throws SlickException{
+    private int direction; 
+    
+    public Orb(int a,int b) throws SlickException{
         this.x = a;
         this.y = b;
         this.isVisible = false;
-        this.orbimage = new Image ("res/orbs/TestSet_12.png");
-        this.hitbox = new Rectangle (a, b, 32, 32);
+        this.orbpic = new Image ("res/antidote.png");
+        this.hitbox = new Rectangle (a, b, 32, 32); 
         this.timeExists = 0;
     }
-        
+
+    
     public void settimeExists(int t){
         this.timeExists = t;
     }
     
     public int gettimeExists(){
+        
         return this.timeExists;
     }
     
@@ -34,33 +37,10 @@ public class Orb {
         this.timeExists--;
     }
     
-    public void setDirection(int i){
-        this.direction = i;
-    }
-    
-    public int getDirection(){
-        return this.direction;
-    }
-    
-    public int getHitboxX() {
-        return hitboxX;
-    }
-
-    public void setHitboxX(int hitboxX) {
-        this.hitboxX = hitboxX;
-    }
-
-    public int getHitboxY() {
-        return hitboxY;
-    }
-
-    public void setHitboxY(int hitboxY) {
-        this.hitboxY = hitboxY;
-    }
-
     public int getX() {
         return x;
     }
+    
 
     public void setX(int x) {
         this.x = x;
@@ -90,6 +70,30 @@ public class Orb {
         this.height = height;
     }
 
+    public int getDmg() {
+        return dmg;
+    }
+
+    public void setDmg(int dmg) {
+        this.dmg = dmg;
+    }
+
+    public int getHitboxX() {
+        return hitboxX;
+    }
+
+    public void setHitboxX(int hitboxX) {
+        this.hitboxX = hitboxX;
+    }
+
+    public int getHitboxY() {
+        return hitboxY;
+    }
+
+    public void setHitboxY(int hitboxY) {
+        this.hitboxY = hitboxY;
+    }
+
     public boolean isIsVisible() {
         return isVisible;
     }
@@ -98,12 +102,12 @@ public class Orb {
         this.isVisible = isVisible;
     }
 
-    public Image getOrb() {
-        return orbimage;
+    public Image getOrbpic() {
+        return orbpic;
     }
 
-    public void setOrb(Image orb) {
-        this.orbimage = orb;
+    public void setOrbpic(Image orbpic) {
+        this.orbpic = orbpic;
     }
 
     public Shape getHitbox() {
@@ -113,23 +117,29 @@ public class Orb {
     public void setHitbox(Shape hitbox) {
         this.hitbox = hitbox;
     }
-    
-     /*
-    Getters and setters are a common concept in Java.
-    A design guideline in Java, and object oriented
-    programming in general, is to encapsulate/isolate
-    values as much as possible.
-    Getters- are methods used to query the value of instance variables
-    this.getLocationX();
-    Setters- methods that set the values for instance variables
-    orb1.setLocation(Player.x, Player.y);
-    */
-
-    public int getDmg() {
-        return dmg;
+    public void setLocation(int a, int b, Player player) {
+        this.setX((int)player.x);
+        this.setY((int)player.y);
+        this.setHitboxX((int)player.x + 5);
+        this.setHitboxY((int)player.y - 10);
     }
 
-    public void setDmg(int dmg) {
-        this.dmg = dmg;
+    /**
+     * Getters and setters are a common concept in Java.
+     * A design guideline in Java, and object oriented
+     * programming in general, is to encapsulate/isolate
+     * values as much as possible. 
+     * Getters - are methods used to query the value of 
+     * instance variables.
+     * this.getLocationX();
+     * Setters - methods that set values for instance 
+     * variables. 
+     * orb1.setLocation(Player.x, Player.y);
+     */
+    public void setDirection(int i){
+        this.direction = i;
+    }
+    public int getDirection(){
+        return this.direction;
     }
 }

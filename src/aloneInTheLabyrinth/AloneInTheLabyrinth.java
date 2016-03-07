@@ -46,7 +46,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
 
     public Enemy numberone;
     public Orb magic8ball;
-    public Player player;
+    public static Player player;
     public PassItem grabtopass;
     public ArrayList<PassItem> stuffpass = new ArrayList();
     public ArrayList<Enemy> monster = new ArrayList();
@@ -67,7 +67,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
         gc.setShowFPS(false);
         forestMap = new TiledMap("res/d4.tmx");
         camera = new Camera(gc, forestMap);
-
+        player = new Player(); 
         blocked.blocked = new boolean[forestMap.getWidth()][forestMap.getHeight()];
         for (int xAxis = 0; xAxis < forestMap.getWidth(); xAxis++) {
             for (int yAxis = 0; yAxis < forestMap.getHeight(); yAxis++) {
@@ -112,7 +112,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
                 camera.cameraY + 25);
         g.drawString("Time Passed: " + counter / 1000, camera.cameraX + 600, camera.cameraY);
         if(magic8ball.isIsVisible()){
-            magic8ball.orbimage.draw(magic8ball.getX(), magic8ball.getY());
+            magic8ball.orbpic.draw(magic8ball.getX(), magic8ball.getY());
         }
         for (PassItem w : stuffpass) {
             if (w.isvisible) {
@@ -189,12 +189,12 @@ public class AloneInTheLabyrinth extends BasicGameState {
             }
         }
         for (Enemy e : monster) {
-            if (magic8ball.hitbox.intersects(e.rect)){
+            if (magic8ball.hitbox.intersects(e.ahitbox)){
                 e.isVisible = false;
             }
         }
         for (Enemy e : monster) {
-            if (player.rect.intersects(e.rect)){
+            if (player.rect.intersects(e.ahitbox)){
                 player.health -= 500;
             }
         }

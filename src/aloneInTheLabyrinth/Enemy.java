@@ -1,5 +1,6 @@
 package aloneInTheLabyrinth;
 
+import static aloneInTheLabyrinth.AloneInTheLabyrinth.player;
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
@@ -40,7 +41,7 @@ public class Enemy {
     float hitboxY = this.By + 8f;
     public Shape ahitbox;
     public boolean isVisible = true;
-    Shape rect;
+    public Shape rect;
 
     public enum Direction {
         UP, DOWN, LEFT, RIGHT, WAIT
@@ -132,13 +133,13 @@ public class Enemy {
     }
 
     private boolean canigoup() {
-        fdelta = Player.getpdelta();
+        fdelta = player.getpdelta();
         return (!isBlocked(this.Bx, this.By - fdelta)
                 || !isBlocked(this.Bx + SIZE - 1, this.By - fdelta));
     }
 
     private boolean canigodown() {
-        fdelta = Player.getpdelta();
+        fdelta = player.getpdelta();
         return ((!isBlocked(this.Bx, this.By + SIZE + 8)
                 || !isBlocked(this.Bx + SIZE - 1, this.By + SIZE + fdelta)));
     }
@@ -150,7 +151,7 @@ public class Enemy {
     }
 
     private boolean canigoleft() {
-        fdelta = Player.getpdelta();
+        fdelta = player.getpdelta();
         return (!isBlocked(this.Bx - SIZE / 2, this.By + SIZE / 2)
                 || !isBlocked(this.Bx - SIZE, this.By)
                 || !isBlocked(this.Bx - fdelta, this.By + SIZE - 16));
@@ -158,7 +159,7 @@ public class Enemy {
 
     void moveup() throws SlickException {
         if (this.canigoup()) {
-            fdelta = Player.getpdelta();
+            fdelta = player.getpdelta();
             this.currentanime = anup;
             this.By -= fdelta / 2;
             this.ahitbox.setLocation(this.Bx, this.By);
@@ -169,7 +170,7 @@ public class Enemy {
 
     void movedown() throws SlickException {
         if (this.canigodown()) {
-            fdelta = Player.getpdelta();
+            fdelta = player.getpdelta();
             this.currentanime = andown;
             this.By += fdelta / 2;
             this.ahitbox.setLocation(this.Bx, this.By);
@@ -178,7 +179,7 @@ public class Enemy {
 
     void moveleft() throws SlickException {
         if (this.canigoleft()) {
-            fdelta = Player.getpdelta();
+            fdelta = player.getpdelta();
             this.currentanime = anleft;
             this.Bx -= fdelta / 2;
             this.ahitbox.setLocation(this.Bx, this.By);
@@ -187,7 +188,7 @@ public class Enemy {
 
     void moveright() throws SlickException {
         if (this.canigoright()) {
-            fdelta = Player.getpdelta();
+            fdelta = player.getpdelta();
             this.currentanime = anright;
             this.Bx += fdelta / 2;
             this.ahitbox.setLocation(this.Bx, this.By);
@@ -195,19 +196,19 @@ public class Enemy {
     }
 
     void setdirection() {
-        if (Player.getplayersY() < this.By) {
+        if (player.getplayersY() < this.By) {
             this.mydirection = Direction.UP;
         }
 
-        if ((Player.getplayersY() > this.By)) {
+        if ((player.getplayersY() > this.By)) {
             this.mydirection = Direction.DOWN;
         }
 
-        if ((Player.getplayersX() > this.Bx)) {
+        if ((player.getplayersX() > this.Bx)) {
             this.mydirection = Direction.RIGHT;
         }
 
-        if ((Player.getplayersX() < this.Bx) && canigoleft()) {
+        if ((player.getplayersX() < this.Bx) && canigoleft()) {
             this.mydirection = Direction.LEFT;
         } else {
             this.mydirection = Direction.DOWN;
@@ -217,15 +218,15 @@ public class Enemy {
     void move() throws SlickException {
 
         if (true) {
-            if (this.Bx > Player.getplayersX()) {
+            if (this.Bx > player.getplayersX()) {
                 this.moveleft();
             } else {
                 this.moveright();
             }
             
-            if (this.By > Player.getplayersY()) {
+            if (this.By > player.getplayersY()) {
                 this.moveup();
-            } else if (this.By < Player.getplayersY()) {
+            } else if (this.By < player.getplayersY()) {
                 this.movedown();
             } else {
                 int r = (int) (Math.random() * (5 - 1)) + 1;

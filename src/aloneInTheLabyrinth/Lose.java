@@ -1,5 +1,6 @@
 package aloneInTheLabyrinth;
 
+import static aloneInTheLabyrinth.AloneInTheLabyrinth.player;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Game;
@@ -46,12 +47,12 @@ public class Lose extends BasicGameState {
     public void keyReleased(int key, char c) {
         switch (key) {
             case Input.KEY_1:
-                Player.health  = 1000;
-                Player.speed = .4f;
+                player.health  = 1000;
+                player.speed = .4f;
                 AloneInTheLabyrinth.counter = 0;
                 PassItem.isvisible = true;
-                Player.x = 96f;
-                Player.y = 228f;
+                player.x = 96f;
+                player.y = 228f;
                 game.enterState(1, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
                 break;
             case Input.KEY_2:
