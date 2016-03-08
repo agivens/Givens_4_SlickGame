@@ -28,8 +28,9 @@ public class Win extends BasicGameState {
     
     public void render(GameContainer container, StateBasedGame game, Graphics g)
             throws SlickException {
-        g.setColor(Color.white);
         winimage.draw();
+        g.setColor(Color.white);
+        g.drawString("Final Score: " + player.score, 400, 320);
     }
 
     public void update(GameContainer container, StateBasedGame game, int delta)
