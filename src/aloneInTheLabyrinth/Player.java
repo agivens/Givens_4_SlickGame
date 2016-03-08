@@ -9,18 +9,17 @@ import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.StateBasedGame;
 public class Player {
 
-    public   float x = 96f;
-    public   float y = 228f;
-    public   int health = 1000;
-    public   int score = 0;
-    public   float speed = .4f;
-      float hitboxX = x + 8f;
-      float hitboxY = y + 8f;
-    private   int startX, startY, width = 30, height = 42;
-    public   Shape rect = new Rectangle(getplayershitboxX(),
-            getplayershitboxY(), width, height);
-    public   float pdelta;
-    public   Animation playeranime;
+    public float x = 96f;
+    public float y = 228f;
+    public int health = 1000;
+    public int score = 0;
+    public float speed = .4f;
+    float hitboxX = x + 8f;
+    float hitboxY = y + 8f;
+    private int startX, startY, width = 30, height = 42;
+    public Shape rect = new Rectangle(getplayershitboxX(), getplayershitboxY(), width, height);
+    public float pdelta;
+    public Animation playeranime;
     Animation sprite, proup, prodown, proleft, proright, prowait;
     private int direction;
     
