@@ -12,7 +12,7 @@ public class Enemy {
     private static int numberOfEnemies = 0;
     private int id;
     boolean[][] eblocked = blocked.getblocked();
-    private Animation antagonist, anup, andown, anleft, anright, anwait, skdead;
+    private Animation antagonist, anup, andown, anleft, anright, anwait, andead;
     int SIZE = 64;
     float Bx;
     float By;
@@ -117,6 +117,13 @@ public class Enemy {
         anwait.addFrame(enemyRO.getSprite(1, 14), 733);
         anwait.addFrame(enemyRO.getSprite(2, 14), 733);
         anwait.addFrame(enemyRO.getSprite(3, 14), 733);
+        
+        andead = new Animation();
+        andead.setAutoUpdate(false);
+        andead.addFrame(enemyRO.getSprite(2, 20), 733);
+        andead.addFrame(enemyRO.getSprite(3, 20), 733);
+        andead.addFrame(enemyRO.getSprite(4, 20), 733);
+        andead.addFrame(enemyRO.getSprite(5, 20), 733);
         currentanime = anwait;
 
     }
@@ -241,7 +248,7 @@ public class Enemy {
                 }
             }
         } else {
-            this.currentanime = skdead;
+            this.currentanime = andead;
         }
     }
 
