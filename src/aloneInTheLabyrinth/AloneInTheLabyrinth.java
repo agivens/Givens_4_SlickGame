@@ -183,6 +183,7 @@ public class AloneInTheLabyrinth extends BasicGameState {
             if (player.rect.intersects(w.hitbox)) {
                 if (w.isvisible) {
                     w.isvisible = false;
+                    player.score = 500;
                     makevisible();
                     sbg.enterState(3, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
                 }
